@@ -6,19 +6,21 @@
 <!-- PRODUCTION
 <html manifest="cache.appcache">
 /PRODUCTION -->
-<head>
-<meta charset="utf-8">
-<meta name="description" content="mindmaps is an HTML5 based mind mapping app. It lets you create neat looking mind maps in the browser." />
-<meta name="keywords" content="mind maps html5 mindmaps offline easy intuitive" />
-<meta name="google" content="notranslate"/>
-<title>mindmaps</title>
-<link rel="icon" type="image/png" href="img/favicon.png" />
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" href="css/Aristo/jquery-ui-1.8.7.custom.css" />
-<link rel="stylesheet" href="css/minicolors/jquery.miniColors.css">
 
-<script id="template-float-panel" type="text/x-jquery-tmpl">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="mindmaps is an HTML5 based mind mapping app. It lets you create neat looking mind maps in the browser." />
+  <meta name="keywords" content="mind maps html5 mindmaps offline easy intuitive" />
+  <meta name="google" content="notranslate" />
+  <title>mindmaps</title>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/Aristo/jquery-ui-1.8.7.custom.css" />
+  <link rel="stylesheet" href="css/minicolors/jquery.miniColors.css">
+
+  <script id="template-float-panel" type="text/x-jquery-tmpl">
 <div class="ui-widget ui-dialog ui-corner-all ui-widget-content float-panel no-select">
   <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix">
     <span class="ui-dialog-title">${title}</span>
@@ -31,7 +33,7 @@
 </div>
 </script>
 
-<script id="template-notification" type="text/x-jquery-tmpl">
+  <script id="template-notification" type="text/x-jquery-tmpl">
 <div class="notification">
   {{if closeButton}}
   <a href="#" class="close-button">x</a>
@@ -43,7 +45,7 @@
 </div>
 </script>
 
-<script id="template-open-table-item" type="text/x-jquery-tmpl">
+  <script id="template-open-table-item" type="text/x-jquery-tmpl">
 <tr>
   <td><a class="title" href="#">${title}</a></td>
   <td>${$item.format(dates.modified)}</td>
@@ -51,7 +53,7 @@
 </tr>
 </script>
 
-<script id="template-open" type="text/x-jquery-tmpl">
+  <script id="template-open" type="text/x-jquery-tmpl">
 <div id="open-dialog" class="file-dialog" title="Open mind map">
   <h1><span class="highlight">Works again!</span> In the Cloud: Dropbox and more</h1>
   <p>Open, save and share your mind maps online in your favorite cloud storage. Supports Google Drive, Dropbox and more! Powered by <a href="https://www.filestack.com/" target="_blank">filestack.com</a>.</p>
@@ -80,7 +82,7 @@
 </div>
 </script>
 
-<script id="template-save" type="text/x-jquery-tmpl">
+  <script id="template-save" type="text/x-jquery-tmpl">
 <div id="save-dialog" class="file-dialog" title="Save mind map">
   <h1><span class="highlight">Works again!</span> In the Cloud: Dropbox and more</h1>
   <p>Open, save and share your mind maps online in your favorite cloud storage. Supports Google Drive, Dropbox and more! Powered by <a href="https://www.filestack.com/" target="_blank">filestack.com</a>.</p>
@@ -100,7 +102,7 @@
 </div>
 </script>
 
-<script id="template-navigator" type="text/x-jquery-tmpl">
+  <script id="template-navigator" type="text/x-jquery-tmpl">
 <div id="navigator">
   <div class="active">
     <div id="navi-content">
@@ -122,7 +124,7 @@
 </script>
 
 
-<script id="template-inspector" type="text/x-jquery-tmpl">
+  <script id="template-inspector" type="text/x-jquery-tmpl">
 <div id="inspector">
   <div id="inspector-content">
     <table id="inspector-table">
@@ -170,12 +172,21 @@
           <button id="inspector-button-branch-color-children" title="Apply branch color to all children" class="right buttons-small buttons-less-padding">Inherit</button>
         </td>
       </tr>
+      <tr>
+        <td>Select type:</td>
+        <td>
+          <select id="select-type-line">
+            <option value="line">Line</option>
+            <option value="dashed">Dashed</option>
+          </select>
+        </td>
+      </tr>
     </table>
   </div>
 </div>
 </script>
 
-<script id="template-export-map" type="text/x-jquery-tmpl">
+  <script id="template-export-map" type="text/x-jquery-tmpl">
 <div id="export-map-dialog" title="Export mind map">
   <h2 class='image-description'>To download the map right-click the
     image and select "Save Image As"</h2>
@@ -184,6 +195,7 @@
 </script>
 
 </head>
+
 <body>
   <div id="print-area">
     <p class="print-placeholder">Please use the print option from the
@@ -219,14 +231,13 @@
     </div>
     <div id="bottombar">
       <div id="about">
-        <a href="about.html" target="_blank">About mindmaps</a> <span
-          style="padding: 0 4px;">|</span> <a style="font-weight: bold"
+        <a href="about.html" target="_blank">About mindmaps</a> <span style="padding: 0 4px;">|</span> <a
+          style="font-weight: bold"
           href="https://docs.google.com/forms/d/e/1FAIpQLSfETMwnwQQXx9aAEFA26jbuBJGkU9zLCW7Rj1Taf5u3k-2NYQ/viewform?usp=sf_link"
           target="_blank">Leave Feedback</a>
       </div>
       <div id="statusbar">
-        <div
-          class="buttons buttons-right buttons-small buttons-less-padding"></div>
+        <div class="buttons buttons-right buttons-small buttons-less-padding"></div>
       </div>
     </div>
   </div>
@@ -292,4 +303,5 @@
   <script src="js/FilePicker.js"></script>
   <!-- JS:LIB:END -->
 </body>
+
 </html>

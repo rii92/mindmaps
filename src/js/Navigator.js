@@ -173,6 +173,20 @@ mindmaps.NavigatorView = function() {
 
       if (!node.collapseChildren) {
         node.forEachChild(function(child) {
+
+          const type = document.querySelector("#select-type-line")?.value ?? "line";
+
+          switch (type) {
+            case "dashed":
+              ctx.setLineDash([5, 3]);
+              break;
+      
+            default:
+              break;
+          }
+      
+          console.log('navigator')
+
           ctx.beginPath();
           ctx.strokeStyle = child.branchColor;
           ctx.moveTo(0, 0);

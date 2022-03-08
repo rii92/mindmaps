@@ -27,6 +27,20 @@ mindmaps.CanvasDrawingUtil = {
    */
   roundedRect : function roundedRect(ctx, x, y, width, height, radius) {
     // from MDN docs
+
+    const type = document.querySelector("#select-type-line")?.value ?? "line";
+
+    switch (type) {
+      case "dashed":
+        ctx.setLineDash([5, 3]);
+        break;
+
+      default:
+        break;
+    }
+
+    console.log('canvasDrawingTools1')
+
     ctx.beginPath();
     ctx.moveTo(x, y + radius);
     ctx.lineTo(x, y + height - radius);
@@ -219,6 +233,20 @@ mindmaps.CanvasBranchDrawer = function() {
     ctx.fillStyle = color;
 
     ctx.beginPath();
+
+    const type = document.querySelector("#select-type-line")?.value ?? "line";
+
+    switch (type) {
+      case "dashed":
+        ctx.setLineDash([5, 3]);
+        break;
+
+      default:
+        break;
+    }
+
+    console.log('canvasDrawingTools2')
+
     ctx.moveTo(startX, startY);
     ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);
     ctx.stroke();
